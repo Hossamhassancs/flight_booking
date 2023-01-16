@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_15_225929) do
+ActiveRecord::Schema.define(version: 2023_01_15_233422) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.integer "seats_in_row"
+    t.integer "numbers_of_rows"
+    t.bigint "flight_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["flight_id"], name: "index_categories_on_flight_id"
+  end
 
   create_table "flights", force: :cascade do |t|
     t.string "aeroplan_type"
@@ -36,4 +46,5 @@ ActiveRecord::Schema.define(version: 2023_01_15_225929) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "categories", "flights"
 end
