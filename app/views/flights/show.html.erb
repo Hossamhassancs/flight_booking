@@ -15,5 +15,36 @@
   <%= @flight.destination %>
 </p>
 
+<p>
+  <strong>seats in row in first class:</strong>
+  <%= @flight.categories&.first&.seats_in_row %>
+</p>
+
+<p>
+  <strong>number of rows in first class:</strong>
+  <%= @flight.categories&.first&.numbers_of_rows %>
+</p>
+
+<p>
+  <strong>seats in row in business class:</strong>
+  <%= @flight.categories&.second&.seats_in_row %>
+</p>
+
+<p>
+  <strong>number of rows in business class:</strong>
+  <%= @flight.categories&.second&.numbers_of_rows %>
+</p>
+
+<p>
+  <strong>seats in row in economy class:</strong>
+  <%= @flight.categories&.third&.seats_in_row %>
+</p>
+
+<p>
+  <strong>number of rows in economy class:</strong>
+  <%= @flight.categories&.third&.numbers_of_rows %>
+</p>
+
+
 <%= link_to 'Edit', edit_flight_path(@flight) %> |
 <%= link_to 'Back', flights_path %>
