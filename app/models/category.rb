@@ -2,7 +2,7 @@ class Category < ApplicationRecord
 
   #relations
   belongs_to :flight
-  has_many :seats
+  has_many :seats , dependent: :destroy
 
   #validations
   validates :seats_in_row, :numbers_of_rows, presence: true

@@ -1,0 +1,13 @@
+<h1> Serach Results </h1>
+<% if @category %>
+  <% seats_in_row = @category.seats_in_row %>
+  <% numbers_of_rows = @category.numbers_of_rows %>
+  <%(0...seats_in_row).each do |num|%>
+    <%(0...numbers_of_rows).each do |num2|%>
+       <%= link_to "seat_num_#{@seats[num+num2].pnr}"%>
+    <%end%>
+    <br>
+  <%end%>
+<% else %>
+  <%= "invalid pnr code" %>
+<% end %>

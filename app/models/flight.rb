@@ -1,7 +1,7 @@
 class Flight < ApplicationRecord
 
   #relations
-  has_many :categories
+  has_many :categories, dependent: :destroy
 
   #validations
   validates :aeroplan_type, :origin, :destination, presence: true
