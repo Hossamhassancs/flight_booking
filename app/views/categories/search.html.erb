@@ -1,10 +1,12 @@
 <h1> Serach Results </h1>
+
 <% if @category %>
   <% seats_in_row = @category.seats_in_row %>
   <% numbers_of_rows = @category.numbers_of_rows %>
   <%(0...seats_in_row).each do |num|%>
     <%(0...numbers_of_rows).each do |num2|%>
-       <%= link_to "seat_num_#{@seats[num+num2].pnr}"%>
+       <% @seat = @seats[num+num2] %>
+       <%= link_to "seat_num_#{@seat.pnr}", "/users/#{current_user.id}/bookings?seat_prn=#{@seat.pnr}&user_id=#{current_user.id}&price=#{@seat.price}" ,method: "post" %>
     <%end%>
     <br>
   <%end%>
